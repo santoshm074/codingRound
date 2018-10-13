@@ -59,4 +59,10 @@ public class HomePage extends Utilities{
     @FindBy(id ="SearchBtn")
     public WebElement searchFlightsBtn;
 
+    @FindBy(xpath ="//div[@class='notification clearFix']/p/small")
+    public WebElement HotelSearchResults;
+    
+    @FindBy(id ="ui-id-3")
+    public WebElement hotelLocation;
+    
 }

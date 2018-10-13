@@ -1,3 +1,5 @@
+import static org.testng.Assert.assertTrue;
+
 import java.io.IOException;
 import org.openqa.selenium.os.WindowsUtils;
 import org.openqa.selenium.support.ui.Select;
@@ -32,9 +34,17 @@ public class HotelBookingTest extends Utilities{
         homePage.hotelLink.click();
         //Enter the location details
         homePage.localityTextBox.sendKeys(getMessageProperty("Locality.Details"));
+        waitFor(4000);
+        homePage.hotelLocation.click();
+        waitFor(3000);
         //Select the person details
         new Select(homePage.travellerSelection).selectByVisibleText(getMessageProperty("Traveller.Details"));
         homePage.searchButton.click();
+        waitFor(6000);
+        String SearchResults = homePage.HotelSearchResults.getText();
+        //Validate hotel search results page is displayed to user
+        assertTrue(SearchResults.contains(getMessageProperty("Hotel.Search.Results.Msg")),
+				"Hotel search results not found");
 
     }
 }

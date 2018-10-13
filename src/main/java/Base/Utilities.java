@@ -118,24 +118,6 @@ public class Utilities {
             return false;
         }
     }
-	
-	// Replacing existing method
-	/*public static boolean isElementPresent(By by) {
-
-		try {
-			List<WebElement> ElementList = driver.findElements(by);
-			if (ElementList.isEmpty()) {
-
-				return false;
-			} else {
-				return true;
-			}
-		} catch (NoSuchElementException e) {
-
-			System.out.println("The Elements are not present");
-		}
-		return false;
-	}*/
 
 	public void setDriverPath() {
 		if (PlatformUtil.isMac()) {
