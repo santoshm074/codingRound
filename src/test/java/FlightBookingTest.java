@@ -10,16 +10,17 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import Base.Utilities;
+import Pages.FlightSearchPage;
 import Pages.HomePage;
 
 public class FlightBookingTest extends Utilities {
 
-	public HomePage homePage;
+	public FlightSearchPage flightSearchPage;
 
 	@BeforeMethod
 	public void setup() throws Exception {
 		initialize();
-		homePage = new HomePage();
+		flightSearchPage = new FlightSearchPage();
 	}
 
 	@AfterMethod
@@ -33,22 +34,22 @@ public class FlightBookingTest extends Utilities {
 	public void testThatResultsAppearForAOneWayJourney() throws IOException {
 
 		waitFor(2000);
-		homePage.bookingOptions.click();
-		homePage.fromTag.clear();
-		homePage.fromTag.sendKeys(getMessageProperty("Origin.City"));
+		flightSearchPage.bookingOptions.click();
+		flightSearchPage.fromTag.clear();
+		flightSearchPage.fromTag.sendKeys(getMessageProperty("Origin.City"));
 		// wait for the auto complete options to appear for the origin
 		waitFor(6000);
-		homePage.origin.click();
+		flightSearchPage.origin.click();
 		waitFor(6000);
-		homePage.toTag.clear();
-		homePage.toTag.sendKeys(getMessageProperty("Destination.City"));
+		flightSearchPage.toTag.clear();
+		flightSearchPage.toTag.sendKeys(getMessageProperty("Destination.City"));
 		// wait for the auto complete options to appear for the origin
 		waitFor(6000);
-		homePage.destination.click();
+		flightSearchPage.destination.click();
 		waitFor(5000);
 		selectDate(getMessageProperty("Travel.Month"), getMessageProperty("Travel.Date"));
 		// all fields filled in. Now click on search
-		homePage.searchFlightsBtn.click();
+		flightSearchPage.searchFlightsBtn.click();
 		waitFor(6000);
 		// verify that result appears for the provided journey search
 		assertTrue(isElementPresent(By.className("searchSummary")), "Search results not retrieved for entered quuery.");

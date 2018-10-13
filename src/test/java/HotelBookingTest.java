@@ -9,15 +9,15 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import Base.Utilities;
-import Pages.HomePage;
+import Pages.HotelSearchPage;
 
 public class HotelBookingTest extends Utilities{
-	public HomePage homePage;
+	public HotelSearchPage hotelSearchPage;
 
 	@BeforeMethod
 	public void setup() throws Exception {
 		initialize();
-		homePage = new HomePage();
+		hotelSearchPage = new HotelSearchPage();
 
 	}
 	
@@ -31,17 +31,17 @@ public class HotelBookingTest extends Utilities{
     @Test
     public void testShouldBeAbleToSearchForHotels() throws IOException {
     	//Click on Hotel link
-        homePage.hotelLink.click();
+    	hotelSearchPage.hotelLink.click();
         //Enter the location details
-        homePage.localityTextBox.sendKeys(getMessageProperty("Locality.Details"));
+    	hotelSearchPage.localityTextBox.sendKeys(getMessageProperty("Locality.Details"));
         waitFor(4000);
-        homePage.hotelLocation.click();
+        hotelSearchPage.hotelLocation.click();
         waitFor(3000);
         //Select the person details
-        new Select(homePage.travellerSelection).selectByVisibleText(getMessageProperty("Traveller.Details"));
-        homePage.searchButton.click();
+        new Select(hotelSearchPage.travellerSelection).selectByVisibleText(getMessageProperty("Traveller.Details"));
+        hotelSearchPage.searchButton.click();
         waitFor(6000);
-        String SearchResults = homePage.HotelSearchResults.getText();
+        String SearchResults = hotelSearchPage.HotelSearchResults.getText();
         //Validate hotel search results page is displayed to user
         assertTrue(SearchResults.contains(getMessageProperty("Hotel.Search.Results.Msg")),
 				"Hotel search results not found");
