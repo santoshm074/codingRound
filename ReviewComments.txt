@@ -1,0 +1,18 @@
+Review Comments:
+--------------------------------------------------------------------------------------------
+1. Test classes was written in src/main/java instead of src/test/java
+2. Page factory object was written in test classes instead of Main pages
+3. Generic methods as WaitFor which was used in each test classes.It should be available in utility class.
+4. Chrome initialization was not correct and it should be in before method
+5. driver.quit method should be written as after method
+6. Test data used in TCs should not be hard coded so i have mentioned it in properties file
+7. URL i have mentioned in environment properties file to avoid the code repeatedly
+8. @BeforeMethod & @AfterMethod was not used in any test class
+9. Frame handling was missing in SignInTest test cases
+10. Methods as WaitFor was declared as Private
+11. Test method name should start with test
+12. Select date (Used in FlightBookingTest) should be a function in utility class which can be used in different scenario
+13. Written Generic method for frame handling
+14. Access modifiers for Page factory object was declared as Private
+15. Xpath for toTag was incorrect used in FlightBookingTest
+16. Assertion was missing for hotel search results in HotelBookingTest
