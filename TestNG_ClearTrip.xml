@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CLEAR tRIP TESTS">
+	
+		<test name="Sample_Test_Execution" preserve-order="false">
+		<classes>
+			<class name="FlightBookingTest">
+				<methods>
+					<include name="testThatResultsAppearForAOneWayJourney" />		
+				</methods>
+			</class>
+			<class name="HotelBookingTest">
+				<methods>
+					<include name="testShouldBeAbleToSearchForHotels" />		
+				</methods>
+			</class>
+			<class name="SignInTest">
+				<methods>
+					<include name="testShouldThrowAnErrorIfSignInDetailsAreMissing" />		
+				</methods>
+			</class>
+	</classes>
+	</test>
+</suite>
